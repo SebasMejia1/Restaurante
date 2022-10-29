@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -29,10 +29,18 @@
                     <div class="col-12 col-md-6 text-center">
                         <img src="../static/img/plato.png" alt="plato" class="img-fluid w-100">
                         <h1>El Herbario de la huerta</h1>
-                        <p class="wow animate__animated animate__fadeInUp animate__slow">Lorem ipsum dolor sit amet,
-                            consectetur adipisicing elit. Nesciunt, quia ea repellendus
-                            officiis quis delectus debitis maiores nam, sapiente, labore architecto reiciendis accusamus
-                            blanditiis ratione. Accusamus praesentium eaque aliquid eius.</p>
+                        <p class="wow animate__animated animate__fadeInUp animate__slow"> El restaurante Elcielo se
+                            caracteriza por brindarle a sus clientes una experiencia culinaria
+                            única, en la que desde el primer plato se involucran todos los sentidos. Se mezclan técnicas
+                            que van desde la cocina de vanguardia hasta métodos tradicionales de la cocina colombiana.
+                            Colombia, precisamente, está en cada paso dentro de Elcielo: los ingredientes y quienes los
+                            preparan son colombianos que sueñan con que nuestros sabores lleguen a los ciudadanos del
+                            mundo.
+                            <hr>
+                            Precisamente el menú no es uno tradicional. No hay platos específicos y se divide en
+                            momentos gastronómicos; momentos que juegan con los sentidos, la memoria, sabores, olores y
+                            texturas que involucran al comensal a sentir y vivir un sinfín de emociones.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -74,13 +82,15 @@
                         <h2 class="mb-3">Nuestros platos</h2>
                     </div>
                     <div class="col-12 col-md-3">
-                        <img src="../static/img/plato1.jpg" alt="plato1" class="img-fluid w-100 wow animate__animated animate__fadeInLeft animate__slow zoom">
+                        <img src="../static/img/plato1.jpg" alt="plato1"
+                            class="img-fluid w-100 wow animate__animated animate__fadeInLeft animate__slow zoom">
                     </div>
                     <div class="col-12 col-md-3">
                         <img src="../static/img/plato2.jpg" alt="plato1" class="img-fluid w-100 zoom">
                     </div>
                     <div class="col-12 col-md-3">
-                        <img src="../static/img/plato3.jpg" alt="plato1" class="img-fluid w-100 wow animate__animated animate__fadeInRight animate__slow zoom">
+                        <img src="../static/img/plato3.jpg" alt="plato1"
+                            class="img-fluid w-100 wow animate__animated animate__fadeInRight animate__slow zoom">
                     </div>
                     <div class="col-12 text-center mt-4">
                         <a href="#" class="btn btn-outline-light">Ver Menú</a>
@@ -89,7 +99,9 @@
             </div>
         </section>
     </main>
-    <footer></footer>
+    <footer>
+        {% include './shared/footer.html' %}
+    </footer>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"

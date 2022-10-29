@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 # LLAMAR LAS VISTAS
-from web.views import Home
+from web.views import Home,MenuPlatos,Empleados
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Home),
+    path('', Home,name='home'),
+    path('platos/', MenuPlatos,name="platos"),
+    path('empleados/', Empleados,name="empleados"),
 ]
