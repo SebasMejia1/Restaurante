@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from web.formularios.formularioPlatos import FormularioPlatos
 from web.formularios.formularioEmpleados import FormularioEmpleados
+from web.models import Platos
+from web.models import Empleados
 # Create your views here.
 
 # TODO: TODAS LAS VISTAS SON FUNCINES DE PYTHON
@@ -18,10 +20,32 @@ def MenuPlatos(request):
     data = {
         'formulario': Formulario
     }
+
+    # RECIBIR DATOS DEL FORM
+    if (request.method == "POST"):
+        datosForm = FormularioPlatos(request.POST)
+        # print(datosForm)
+        if (datosForm.is_valid()):
+            datosLimpios = datosForm.cleaned_data
+            print(datosLimpios)
+            # CONSTRUIR UN DICC DE ENVIO DE DATOS A LA DB
+            platoNuevo = Platos(
+                nombre=datosLimpios["nombre"],
+                descripcion=datosLimpios["descripcion"],
+                imagen=datosLimpios["fotografia"],
+                precio=datosLimpios["precio"],
+                tipo=datosLimpios["tipo"]
+            )
+            # INTENTARË LLEVAR DAOS A LA DB
+            try:
+                platoNuevo.save()
+                print("EXITO GUARDANDO DATOS")
+            except Exception as error:
+                print("Upss...", error)
     return render(request, 'menuplatos.html', data)
 
 
-def Empleados(request):
+def EmpleadosClas(request):
     # Esta vista va a utilizar un form de django
     # Crear un objeto de la clas
     Formulario = FormularioEmpleados()
@@ -29,4 +53,24 @@ def Empleados(request):
     data = {
         'formulario': Formulario
     }
+    if (request.method == "POST"):
+        datosEmpleados = FormularioEmpleados(request.POST)
+        if (datosEmpleados.is_valid()):
+            datosLimpiosEmpleados = datosEmpleados.cleaned_data
+            print(datosLimpiosEmpleados)
+            # CONSTRUIR UN DICC DE ENVIO DE DATOS A LA DB
+            empleadoNuevo = Empleados(
+                nombre=datosLimpiosEmpleados["nombre"],
+                apellidos=datosLimpiosEmpleados["apellidos"],
+                foto=datosLimpiosEmpleados["foto"],
+                cargo=datosLimpiosEmpleados["cargo"],
+                salario=datosLimpiosEmpleados["salario"],
+                contacto=datosLimpiosEmpleados["contacto"]
+            )
+            # INTENTARË LLEVAR DAOS A LA DB
+            try:
+                empleadoNuevo.save()
+                print("EXITO GUARDANDO DATOS")
+            except Exception as error:
+                print("Upss...", error)
     return render(request, 'empleados.html', data)

@@ -22,13 +22,18 @@
             <div class="row">
                 <div class="col-12 col-md-7">
                     <h2>Registro Empleados</h2>
-                    <form>
+                    <form method="POST">
                         {{formulario}}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-success w-100 my-2">Enviar</button>
                     </form>
                 </div>
             </div>
         </div>
     </main>
+    <footer>
+        {% include './shared/footer.html' %}
+    </footer>
 </body>
 
 </html>

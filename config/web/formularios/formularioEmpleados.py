@@ -10,22 +10,22 @@ class FormularioEmpleados(forms.Form):
     )
     nombre = forms.CharField(
         required=True,
-        max_length=10,
+        max_length=50,
         widget=forms.TextInput(attrs={
             'class': 'form-control'
         })
     )
     apellidos = forms.CharField(
         required=True,
-        max_length=10,
+        max_length=50,
         widget=forms.TextInput(attrs={
             'class': 'form-control'
         })
     )
     foto = forms.CharField(
         required=True,
-        max_length=10,
-        widget=forms.FileInput(attrs={
+        max_length=200,
+        widget=forms.TextInput(attrs={
             'class': 'form-control'
         })
     )
@@ -37,14 +37,14 @@ class FormularioEmpleados(forms.Form):
     )
     salario = forms.CharField(
         required=True,
-        max_length=10,
+        max_length=100,
         widget=forms.NumberInput(attrs={
             'class': 'form-control'
         })
     )
     contacto = forms.CharField(
         required=True,
-        max_length=10,
+        max_length=50,
         widget=forms.TextInput(attrs={
             'class': 'form-control'
         })
