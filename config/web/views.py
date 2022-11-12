@@ -13,12 +13,19 @@ def Home(request):
 
 
 def MenuPlatos(request):
+    # RUTINA PARA CONSULTA DE PLATOS
+    platosConsultados = Platos.objects.all()
+    print(platosConsultados)
+
+    # RUTINA PARA GUARDAR PLATS
     # Esta vista va a utilizar un form de django
     # Crear un objeto de la clas
     Formulario = FormularioPlatos()
     # Creamos un dicc para enviar el form al html
     data = {
-        'formulario': Formulario
+        'formulario': Formulario,
+        'bandera': False,
+        'platos': platosConsultados
     }
 
     # RECIBIR DATOS DEL FORM
@@ -27,7 +34,7 @@ def MenuPlatos(request):
         # print(datosForm)
         if (datosForm.is_valid()):
             datosLimpios = datosForm.cleaned_data
-            print(datosLimpios)
+            # print(datosLimpios)
             # CONSTRUIR UN DICC DE ENVIO DE DATOS A LA DB
             platoNuevo = Platos(
                 nombre=datosLimpios["nombre"],
@@ -39,9 +46,11 @@ def MenuPlatos(request):
             # INTENTARË LLEVAR DAOS A LA DB
             try:
                 platoNuevo.save()
+                data["bandera"] = True
                 print("EXITO GUARDANDO DATOS")
             except Exception as error:
                 print("Upss...", error)
+                data["bandera"] = False
     return render(request, 'menuplatos.html', data)
 
 
@@ -51,13 +60,14 @@ def EmpleadosClas(request):
     Formulario = FormularioEmpleados()
     # Creamos un dicc para enviar el form al html
     data = {
-        'formulario': Formulario
+        'formulario': Formulario,
+        'bandera': False
     }
     if (request.method == "POST"):
         datosEmpleados = FormularioEmpleados(request.POST)
         if (datosEmpleados.is_valid()):
             datosLimpiosEmpleados = datosEmpleados.cleaned_data
-            print(datosLimpiosEmpleados)
+            # print(datosLimpiosEmpleados)
             # CONSTRUIR UN DICC DE ENVIO DE DATOS A LA DB
             empleadoNuevo = Empleados(
                 nombre=datosLimpiosEmpleados["nombre"],
@@ -71,6 +81,8 @@ def EmpleadosClas(request):
             try:
                 empleadoNuevo.save()
                 print("EXITO GUARDANDO DATOS")
+                data["bandera"] = True
             except Exception as error:
+                data["bandera"] = False
                 print("Upss...", error)
     return render(request, 'empleados.html', data)
