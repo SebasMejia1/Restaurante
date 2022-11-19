@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <!-- CSS only -->
+    <link rel="stylesheet" href="../static/styles/stylefooter.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/styles/estilohome.css">
@@ -93,12 +94,13 @@
                             class="img-fluid w-100 wow animate__animated animate__fadeInRight animate__slow zoom">
                     </div>
                     <div class="col-12 text-center mt-4">
-                        <a href="#" class="btn btn-outline-light">Ver Menú</a>
+                        <a href="{% url 'todosplatos' %}" class="btn btn-outline-light">Ver Menú</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+    <br><br><br><br><br>
     <footer>
         {% include './shared/footer.html' %}
     </footer>

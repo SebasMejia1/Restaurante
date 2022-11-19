@@ -1,0 +1,19 @@
+body{
+    background-image: url('../img/banner.jpg');
+}
+.contenedor-platos{
+    border-radius: 25px 0 0 25px;
+    background-color: #23A234;
+}
+.contenedor-formulario{
+    border-radius: 0 25px 25px 0;
+    background-color: lightgray;
+    text-align: center;
+    padding: 20px;
+}
+.formulario{
+    margin-left: 20px;
+}
+.imagen-plato{
+    border-radius: 25px;
+}

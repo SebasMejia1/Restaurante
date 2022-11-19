@@ -1,0 +1,11 @@
+body{
+    background-image: url('../img/banner.jpg');
+}
+.descripcion{
+    background-color: #fff;
+    color: black;
+}
+.titulo-carta{
+    font-size: 35px;
+    text-align: center;
+}

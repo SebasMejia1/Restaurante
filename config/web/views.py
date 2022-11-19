@@ -12,10 +12,19 @@ def Home(request):
     return render(request, 'home.html')
 
 
+def todosplatos(request):
+    platosConsultados = Platos.objects.all()
+    # print(platosConsultados)
+    data = {
+        'platos': platosConsultados
+    }
+    return render(request, 'todosplatos.html', data)
+
+
 def MenuPlatos(request):
     # RUTINA PARA CONSULTA DE PLATOS
     platosConsultados = Platos.objects.all()
-    print(platosConsultados)
+    # print(platosConsultados)
 
     # RUTINA PARA GUARDAR PLATS
     # Esta vista va a utilizar un form de django
@@ -52,6 +61,14 @@ def MenuPlatos(request):
                 print("Upss...", error)
                 data["bandera"] = False
     return render(request, 'menuplatos.html', data)
+
+
+def personal(request):
+    empleadosConsultados = Empleados.objects.all()
+    data = {
+        'empleados': empleadosConsultados
+    }
+    return render(request, 'personal.html', data)
 
 
 def EmpleadosClas(request):
